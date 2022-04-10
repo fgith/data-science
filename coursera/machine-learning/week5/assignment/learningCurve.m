@@ -55,10 +55,22 @@ error_val   = zeros(m, 1);
 
 
 
+for i = 1:m
 
+X_train = X(1:i,:);
+y_train = y(1:i);
 
+%Compute theta on training set. 
+%Use the theta in the cost computation of cross validation set.
+theta = trainLinearReg(X_train, y_train, lambda); 
 
+% Compute cost
 
+error_train(i) = linearRegCostFunction(X_train, y_train, theta, 0);
+
+error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+
+end
 % -------------------------------------------------------------
 
 % =========================================================================
