@@ -20,9 +20,9 @@ S = zeros(n);
 %       number of examples).
 %
 
+sigma_covariance_X = (1/m)*(X'*X);
 
-
-
+[U, S, V] = svd(sigma_covariance_X);
 
 
 

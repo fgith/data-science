@@ -21,8 +21,23 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+J = size(K,1);
+
+for i = 1:length(X)
+
+for j = 1:K
 
 
+J(j) = sqrt(sum(power((X(i,:)-centroids(j,:)),2)));
+
+
+end
+
+
+
+[~, idx(i,1)] = min(J, [], 2);
+
+end
 
 
 
